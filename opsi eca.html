@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilihan Opsi</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #fffaf0;
+        color: #333;
+      }
+      .container {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #f8c291;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      h1 {
+        color: #ff6347;
+      }
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ff6347;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: #f6e58d;
+      }
+      button {
+        background-color: #ff6347;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      button:hover {
+        background-color: #e55039;
+      }
+      .content {
+        display: none;
+      }
+      .content.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="judul">pilihlah opsi dibawah ini eca</h1>
+      <div id="form-section">
+        <select id="pilihan">
+          <option value="0">-- semoga beruntung --</option>
+          <option value="1">Nomor 1</option>
+          <option value="2">Nomor 2</option>
+          <option value="3">Nomor 3</option>
+          <option value="4">Nomor 4</option>
+          <option value="5">Nomor 5</option>
+        </select>
+        <button onclick="showContent()">Submit</button>
+      </div>
+
+      <div id="content-section">
+        <div id="content1" class="content">
+          dava sayang banget sama eca, lanjut lagi mau ga?
+        </div>
+        <div id="content2" class="content">mau ga lanjut lagi?</div>
+        <div id="content3" class="content">i love you</div>
+        <div id="content4" class="content">ayo lanjut lagi</div>
+        <div id="content5" class="content">plis lanjut lagi</div>
+        
+      </div>
+    </div>
+
+    <script>
+      function showContent() {
+        const pilihan = document.getElementById("pilihan").value;
+        const contents = document.querySelectorAll(".content");
+
+        contents.forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        if (pilihan > 0 && pilihan <= 5) {
+          document.getElementById(`content${pilihan}`).classList.add("active");
+          document.getElementById("form-section").style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
